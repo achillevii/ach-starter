@@ -1,2 +1,6 @@
 @import '../../node_modules/normalize.css/normalize';
+@import './import-scss/variables.scss';
 
+body {
+	background-color: $color1;
+}

@@ -401,3 +401,6 @@ template {
  */
 [hidden] {
   display: none; }
+
+body {
+  background-color: #495867; }

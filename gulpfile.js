@@ -14,7 +14,7 @@ var concat = require('gulp-concat');
 
 
 gulp.task('sass', function() {
-  return gulp.src('app/scss/**/*.scss') 
+  return gulp.src('app/scss/*.scss') 
     .pipe(sass())
     .pipe(autoprefixer())
     .pipe(gulp.dest('app/css'))
@@ -23,10 +23,10 @@ gulp.task('sass', function() {
 gulp.task('build', function () {
     return gulp.src('app/*.html')
     .pipe(changed('app/**/*.+(html|css|js)'))
-    .pipe(extender({annotations:true,verbose:false}))
-    .pipe(useref())
-    .pipe(gulpif('*.js', uglify()))
-    .pipe(gulpif('*.css', cleanCSS()))
+    .pipe(extender({annotations:false,verbose:false})) //takes includes
+    .pipe(useref())  //concatenation
+    .pipe(gulpif('*.js', uglify()))  //minification
+    .pipe(gulpif('*.css', cleanCSS()))  //minification
     .pipe(gulp.dest('dist'))
     .pipe(browserSync.reload({
       stream: true
