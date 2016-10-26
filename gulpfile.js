@@ -54,7 +54,7 @@ gulp.task('browserSync', function() {
 });
 
 
-gulp.task('default', ['browserSync','sass','build','imagemin'], function (){
+gulp.task('default', ['browserSync','sass','build'], function (){
   gulp.watch('app/scss/**/*.scss', ['sass']);
   gulp.watch(['app/**/*.+(html|css|js)'], ['build']);
   gulp.watch(['app/img/**/*'], ['imagemin']);  
